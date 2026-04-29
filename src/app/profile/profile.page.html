@@ -1,0 +1,99 @@
+<!--
+  HEADER SECTION
+-->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!--
+    PROFILE PICTURE SECTION
+  -->
+  <div class="profile-picture-container">
+    <ion-avatar>
+      <img [src]="profile.image || 'assets/hhhh.jpeg'" alt="Profile Picture">
+    </ion-avatar>
+
+    <input
+      type="file"
+      id="fileInput"
+      (change)="onFileSelected($event)"
+      accept="image/*"
+    >
+
+    <button class="choose-photo-btn" (click)="triggerFileInput()">
+      change Photo
+    </button>
+  </div>
+
+  <!--
+    PROFILE FORM SECTION
+  -->
+  <form (ngSubmit)="saveProfile()">
+    <ion-list lines="full">
+      <ion-item>
+        <ion-label position="stacked">Name</ion-label>
+        <ion-input [(ngModel)]="profile.name" name="name" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input [(ngModel)]="profile.email" name="email" type="email" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Contact Number</ion-label>
+        <ion-input [(ngModel)]="profile.contact" name="contact" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Address</ion-label>
+        <ion-input [(ngModel)]="profile.address" name="address" required></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button class="small-save-btn" color="primary" type="submit" expand="block">
+      Save Profile
+    </ion-button>
+  </form>
+
+  <p></p>
+
+  <!-- ── RIDE HISTORY BUTTON (new) ─────────────────────────── -->
+  <ion-item button detail lines="none" (click)="goToHistory()">
+    <ion-icon name="time-outline" slot="start" color="primary"></ion-icon>
+    <ion-label>Ride History</ion-label>
+  </ion-item>
+
+  <!-- ── MAP TOGGLE ────────────────────────────────────────── -->
+  <ion-item button detail lines="none" (click)="toggleMap()">
+    <ion-icon name="map" slot="start"></ion-icon>
+    <ion-label>Show/Hide Map</ion-label>
+    <ion-icon [name]="showMap ? 'chevron-up' : 'chevron-down'" slot="end"></ion-icon>
+  </ion-item>
+
+  <!--
+    MAP DISPLAY SECTION
+  -->
+  <div *ngIf="showMap" class="map-wrapper">
+    <div id="profileMap"></div>
+    <ion-text color="medium">
+      <small>Drag marker to update delivery location.</small>
+    </ion-text>
+  </div>
+
+  <!--
+    FOOTER SECTION
+  -->
+  <ion-footer>
+    <ion-toolbar>
+      <ion-button class="small-logout-btn" color="danger" expand="block" (click)="logout()">
+        Logout
+      </ion-button>
+    </ion-toolbar>
+  </ion-footer>
+
+</ion-content>

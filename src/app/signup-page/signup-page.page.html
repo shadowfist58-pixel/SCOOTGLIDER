@@ -1,0 +1,89 @@
+<ion-content>
+  <div class="signup-container">
+
+    <!--
+      LOGO SECTION
+      Displays the app name, logo, and tagline
+    -->
+    <div class="logo-section">
+      <img src="assets/scooter-logo-motorcycle-symbol-flat-style-scooter-icon-isolated_118339-5373.jpg" alt="Scooter Logo" class="logo-img" />
+      <h1>ScootGlide</h1>
+      <p>Hop on and ride your way to freedom! <br>
+        Rent or buy your scooter in just a few taps.
+      </p>
+      <p></p>
+    </div>
+
+    <!--
+      TOGGLE BUTTONS
+      Switches between login and signup forms
+    -->
+    <div class="toggle-buttons">
+      <button [class.active]="isLogin" (click)="setLogin(true)">Log In</button>
+      <button [class.active]="!isLogin" (click)="setLogin(false)">Sign Up</button>
+    </div>
+
+    <!--
+      LOGIN FORM
+      Allows users to enter email and password to log in
+    -->
+    <form *ngIf="isLogin" (ngSubmit)="login($event)">
+  <ion-item>
+    <ion-input
+      placeholder="Email or Username"
+      [(ngModel)]="loginData.email"
+      name="loginEmail"
+      required>
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input
+      placeholder="Password"
+      [(ngModel)]="loginData.password"
+      type="password"
+      name="loginPassword"
+      required>
+    </ion-input>
+  </ion-item>
+
+  <button type="submit" class="primary-btn">Log In</button>
+
+  <!-- Forgot Password link -->
+  <div class="forgot-password">
+    <a routerLink="/forgot-password">Forgot Password?</a>
+  </div>
+</form>
+
+      
+      <!--
+      SIGNUP FORM
+      Allows new users to register with email and password
+    -->
+    <form *ngIf="!isLogin" (ngSubmit)="signup($event)">
+      <ion-item>
+        <ion-input placeholder="Email or Username" [(ngModel)]="signupData.email" name="signupEmail"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Password" [(ngModel)]="signupData.password" type="password" name="signupPassword"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Confirm Password" [(ngModel)]="signupData.confirmPassword" type="password" name="confirmPassword"></ion-input>
+      </ion-item>
+      <button type="submit" class="secondary-btn">Sign Up</button>
+    </form>
+
+
+<p class="pol">Welcome to ScootGlide! <br>
+  <br>
+We value your privacy and are committed to keeping your personal information safe. All details you share, such as your name, contact number, and payment information, are used only to provide and improve our services.
+By using our app, you agree to use it responsibly and follow our rental and purchase terms. <br>
+<br>
+Please ensure that all information you provide is accurate. Any misuse of the app or scooters may result in account suspension.
+We do not share your data with third parties without your consent, except when required by law. <br>
+<br>
+Thank you for trusting ScootGlide — your safe and reliable ride partner.</p>
+
+
+  </div>
+</ion-content>

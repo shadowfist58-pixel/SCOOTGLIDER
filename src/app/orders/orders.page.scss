@@ -1,0 +1,74 @@
+/*
+  SEGMENT STYLES
+  Adds spacing below the tab segment
+*/
+ion-segment {
+  margin-bottom: 16px;
+}
+
+/*
+  ITEM STYLES
+  Adds spacing, rounded corners, and light background
+*/
+ion-item {
+  margin-bottom: 8px;
+  border-radius: 12px;
+  --background: #f7f7f7;
+}
+
+/*
+  THUMBNAIL IMAGE STYLES
+  Applies rounded corners to thumbnail images
+*/
+ion-thumbnail img {
+  border-radius: 8px;
+}
+
+/*
+  LABEL TEXT STYLES
+  Makes scooter or product titles bold
+*/
+ion-label h2 {
+  font-weight: bold;
+}
+
+/*
+  ORDER CARD IMAGE STYLES
+  Defines image size, shape, and layout spacing
+*/
+.order-card img,
+.order-card ion-img {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 12px;
+}
+
+/*
+  ORDER CARD LAYOUT
+  Aligns image and text content side by side
+*/
+.order-card-inner {
+  display: flex;
+  align-items: flex-start;
+}
+
+/*
+  ORDER CARD IMAGE ADJUSTMENTS
+  Ensures consistent image sizing and spacing inside cards
+*/
+.order-card-inner ion-img {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 12px;
+}
+
+/*
+  ORDER DETAILS CONTAINER
+  Expands order details to fill remaining space beside the image
+*/
+.order-details {
+  flex: 1;
+}

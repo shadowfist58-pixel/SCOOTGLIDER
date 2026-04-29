@@ -1,0 +1,35 @@
+<ion-app>
+  <ion-router-outlet></ion-router-outlet>
+
+  <!-- 
+      FOOTER NAVIGATION 
+      Displays bottom toolbar with navigation buttons 
+  -->
+  <ion-footer *ngIf="showFooter" class="footer-toolbar">
+    <ion-toolbar class="tonton">
+
+      <!-- 
+          FOOTER BUTTONS 
+          Contains links to Home, Orders, and Profile pages 
+      -->
+      <div class="footer-buttons">
+
+        <!-- Home Button -->
+        <ion-button fill="clear" class="home" (click)="navigate('/home')">
+          <ion-icon name="home-outline"></ion-icon>
+        </ion-button>
+
+        <!-- Orders Button -->
+        <ion-button fill="clear" class="orders" (click)="navigate('/orders')">
+          <ion-icon name="receipt-outline"></ion-icon>
+        </ion-button>
+
+        <!-- Profile Button -->
+        <ion-button fill="clear" class="profile" (click)="navigate('/profile')">
+          <ion-icon name="person-outline"></ion-icon>
+        </ion-button>
+
+      </div>
+    </ion-toolbar>
+  </ion-footer>
+</ion-app>

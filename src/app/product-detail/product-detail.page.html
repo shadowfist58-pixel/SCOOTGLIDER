@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ scooter?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="scooter" class="ion-padding">
+  <ion-img
+    [src]="scooter.image || 'assets/hhhh.jpeg'"
+    alt="{{ scooter.name }}"
+    class="product-image">
+  </ion-img>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ scooter.name }}</ion-card-title>
+      <ion-card-subtitle>{{ scooter.brand }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p class="description">{{ scooter.description }}</p>
+      <h2 class="price">₱{{ scooter.price.toLocaleString() }}</h2>
+      <p class="rent">Rent for only ₱{{ scooter.rentPrice }}/day</p>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="action-buttons">
+    <ion-button expand="block" color="success" (click)="buyNow()">
+      <ion-icon slot="start" name="cart-outline"></ion-icon>
+      Buy Now
+    </ion-button>
+
+    <ion-button expand="block" color="tertiary" (click)="goToRent()">
+      <ion-icon slot="start" name="bicycle-outline"></ion-icon>
+      Rent Scooter
+    </ion-button>
+  </div>
+</ion-content>

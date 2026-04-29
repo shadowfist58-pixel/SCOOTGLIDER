@@ -1,0 +1,55 @@
+<!-- Find Scooter Page -->
+
+<!-- Header -->
+<ion-header>
+  <ion-toolbar>
+    <!-- Page Title -->
+    <ion-title>Find Your Scooter</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <!-- Search Bar -->
+    <ion-searchbar
+      [(ngModel)]="searchQuery"
+      placeholder="Search scooters..."
+      (ionInput)="filterScooters()">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Content -->
+<ion-content class="ion-padding">
+
+  <!-- Category Segment -->
+  <ion-segment [(ngModel)]="segmentValue" (ionChange)="filterScooters()">
+    <!-- All Category Option -->
+    <ion-segment-button value="all">
+      <ion-label>All</ion-label>
+    </ion-segment-button>
+
+    <!-- Dynamic Brand Options -->
+    <ion-segment-button *ngFor="let brand of getCategories()" [value]="brand">
+      <ion-label>{{ brand }}</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Scooters Grid -->
+  <ion-grid>
+    <ion-row>
+      <!-- Scooter Cards -->
+      <ion-col size="6" *ngFor="let scooter of filteredScooters">
+        <ion-card (click)="goToDetail(scooter)">
+          <!-- Scooter Image -->
+          <ion-img [src]="scooter.image || 'assets/scooters/default.png'"></ion-img>
+
+          <!-- Scooter Info -->
+          <ion-card-content>
+            <h2>{{ scooter.name }}</h2>
+            <p>{{ scooter.brand }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

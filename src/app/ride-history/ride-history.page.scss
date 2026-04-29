@@ -1,0 +1,260 @@
+// ── PAGE BACKGROUND (matches profile dark theme) ─────────────
+ion-content {
+  --background: #151514;
+  --padding-bottom: 40px;
+}
+
+ion-header ion-toolbar {
+  --background: #1e1e1c;
+  --color: #ffffff;
+}
+
+ion-title {
+  color: #ffffff;
+}
+
+// ── SUMMARY CARD ──────────────────────────────────────────────
+.summary-card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #1e1e1c;
+  border-radius: 16px;
+  margin: 16px;
+  padding: 18px 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.summary-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #3880ff;
+}
+
+.summary-label {
+  font-size: 0.72rem;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-divider {
+  width: 1px;
+  height: 40px;
+  background: #2e2e2b;
+}
+
+// ── FILTER CHIPS ──────────────────────────────────────────────
+.filter-row {
+  display: flex;
+  gap: 8px;
+  padding: 0 16px 8px;
+  overflow-x: auto;
+
+  ion-chip {
+    --background: #1e1e1c;
+    --color: #a0a0a0;
+    border: 1px solid #2e2e2b;
+    font-size: 0.82rem;
+    transition: all 0.2s;
+  }
+
+  ion-chip.active-chip {
+    --background: #3880ff;
+    --color: #ffffff;
+    border-color: #3880ff;
+    font-weight: 600;
+  }
+}
+
+// ── RIDE CARD ─────────────────────────────────────────────────
+.ride-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e1e1c;
+  border-radius: 14px;
+  margin: 8px 16px;
+  padding: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.15s, box-shadow 0.15s;
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Left side: icon + route
+.ride-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.ride-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(56, 128, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  ion-icon {
+    font-size: 1.3rem;
+    color: #3880ff;
+  }
+
+  &.cancelled-icon {
+    background: rgba(235, 68, 90, 0.15);
+
+    ion-icon {
+      color: #eb445a;
+    }
+  }
+}
+
+.ride-route {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.ride-from,
+.ride-to {
+  font-size: 0.82rem;
+  color: #e0e0e0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100px;
+}
+
+.arrow-icon {
+  font-size: 0.75rem;
+  color: #a0a0a0;
+  flex-shrink: 0;
+}
+
+// Right side: cost + status + date
+.ride-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.ride-cost {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #3880ff;
+}
+
+.ride-status {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.status-completed {
+  background: rgba(45, 211, 111, 0.15);
+  color: #2dd36f;
+}
+
+.status-cancelled {
+  background: rgba(235, 68, 90, 0.15);
+  color: #eb445a;
+}
+
+.ride-date,
+.ride-distance {
+  font-size: 0.7rem;
+  color: #a0a0a0;
+}
+
+// ── EMPTY STATE ───────────────────────────────────────────────
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 10px;
+  color: #a0a0a0;
+
+  ion-icon {
+    font-size: 4rem;
+    color: #2e2e2b;
+  }
+
+  p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin: 0;
+  }
+
+  span {
+    font-size: 0.85rem;
+    text-align: center;
+  }
+}
+
+// ── DETAIL MODAL ──────────────────────────────────────────────
+.detail-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0 16px;
+  gap: 10px;
+}
+
+.detail-icon {
+  font-size: 3rem;
+  color: #3880ff;
+}
+
+.detail-status {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 4px 16px;
+  border-radius: 20px;
+}
+
+.detail-cost {
+  color: #3880ff;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+ion-list ion-item {
+  --background: transparent;
+  --color: #e0e0e0;
+
+  p {
+    color: #a0a0a0;
+    font-size: 0.75rem;
+  }
+
+  h2 {
+    color: #ffffff;
+    font-size: 0.95rem;
+  }
+}

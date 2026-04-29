@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Buy {{ scooter?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card *ngIf="scooter">
+    <ion-img [src]="scooter.image || 'assets/hhhh.jpeg'" alt="{{ scooter.name }}"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{ scooter.name }}</ion-card-title>
+      <ion-card-subtitle>₱{{ scooter.price.toLocaleString() }}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Delivery Option</ion-label>
+      <ion-select [(ngModel)]="deliveryOption">
+        <ion-select-option value="pickup">Pickup</ion-select-option>
+        <ion-select-option value="delivery">Delivery</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Payment Method</ion-label>
+      <ion-select [(ngModel)]="paymentMethod">
+        <ion-select-option value="Cash">Cash</ion-select-option>
+        <ion-select-option value="GCash">GCash</ion-select-option>
+        <ion-select-option value="Credit Card">Credit Card</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Notes (Optional)</ion-label>
+      <ion-textarea [(ngModel)]="notes" placeholder="Any additional info..."></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" color="success" (click)="confirmOrder()">
+    Confirm Order
+  </ion-button>
+</ion-content>

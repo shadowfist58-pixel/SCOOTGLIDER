@@ -1,0 +1,150 @@
+<!--
+  HEADER SECTION
+  Displays the page title inside a primary toolbar
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>My Orders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!--
+  MAIN CONTENT SECTION
+  Contains all tabbed content for orders and liked products
+-->
+<ion-content class="ion-padding">
+
+  <!--
+    SEGMENT TABS
+    Switches between Orders and Liked tabs
+  -->
+  <ion-segment [(ngModel)]="selectedTab">
+    <ion-segment-button value="orders">
+      <ion-label>Orders</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="liked">
+      <ion-label>Liked</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!--
+    ORDERS TAB SECTION
+    Displays all user orders with details and status
+  -->
+  <div *ngIf="selectedTab === 'orders'">
+    <ion-list *ngIf="orders.length > 0; else noOrders">
+
+      <!--
+        ORDER CARD
+        Shows scooter image, details, and order info
+      -->
+      <ion-card *ngFor="let order of orders" class="order-card">
+        <div class="order-card-inner">
+          <ion-img [src]="order.scooter?.image || 'assets/scooters/default.png'" alt="{{ order.scooter?.name }}"></ion-img>
+
+          <div class="order-details">
+            <ion-card-header>
+              <ion-card-title>{{ order.scooter?.name }}</ion-card-title>
+              <ion-card-subtitle>
+                <ion-badge color="success" *ngIf="isPurchase(order)">Purchase</ion-badge>
+                <ion-badge color="tertiary" *ngIf="isRental(order)">Rental</ion-badge>
+                <span *ngIf="isRental(order)"> - {{ order.rentType }}</span>
+              </ion-card-subtitle>
+            </ion-card-header>
+
+            <ion-card-content>
+
+              <!--
+                RENTAL DETAILS
+                Displays rental duration, delivery, and payment info
+              -->
+              <div *ngIf="isRental(order)">
+                <p>Duration: <strong>{{ order.duration }}</strong> {{ order.rentType === 'hour' ? 'hours' : 'days' }}</p>
+                <p>Delivery Option: {{ order.deliveryOption }}</p>
+                <p>Payment Method: {{ order.paymentOption | titlecase }}</p>
+              </div>
+
+              <!--
+                PURCHASE DETAILS
+                Displays purchase payment method
+              -->
+              <div *ngIf="isPurchase(order)">
+                <p>Payment Method: {{ order.paymentOption | titlecase }}</p>
+              </div>
+
+              <!--
+                ORDER META INFO
+                Displays date, total price, and status
+              -->
+              <p>Date: {{ order.date | date: 'medium' }}</p>
+              <p>Total: ₱{{ order.totalPrice | number }}</p>
+              <p>Status: 
+                <ion-badge [color]="order.status === 'Completed' || order.status === 'Delivered' ? 'success' : 'warning'">
+                  {{ order.status }}
+                </ion-badge>
+              </p>
+              <p *ngIf="order.notes">Notes: {{ order.notes }}</p>
+            </ion-card-content>
+          </div>
+        </div>
+      </ion-card>
+    </ion-list>
+
+    <!--
+      EMPTY STATE FOR ORDERS
+      Displays message when there are no orders
+    -->
+    <ng-template #noOrders>
+      <ion-text color="medium">
+        <p class="ion-text-center">No orders yet.</p>
+      </ion-text>
+    </ng-template>
+  </div>
+
+  <!--
+    LIKED TAB SECTION
+    Displays all liked scooters or products
+  -->
+  <div *ngIf="selectedTab === 'liked'">
+    <ion-list *ngIf="likedProducts.length > 0; else noLiked">
+
+      <!--
+        LIKED PRODUCT CARD
+        Shows liked scooter image, name, and price
+      -->
+      <ion-card *ngFor="let product of likedProducts" class="order-card">
+        <div class="order-card-inner">
+          <ion-img [src]="product.image" alt="{{ product.name }}"></ion-img>
+
+          <div class="order-details">
+            <ion-card-header>
+              <ion-card-title>{{ product.name }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p>₱{{ product.price | number }}</p>
+            </ion-card-content>
+          </div>
+        </div>
+      </ion-card>
+    </ion-list>
+
+    <!--
+      CLEAR BUTTON
+      Removes all existing orders when clicked
+    -->
+    <ion-button color="danger" (click)="clearOrders()">
+      Clear All Orders
+    </ion-button>
+
+    <!--
+      EMPTY STATE FOR LIKED
+      Displays message when no liked items exist
+    -->
+    <ng-template #noLiked>
+      <ion-text color="medium">
+        <p class="ion-text-center">No liked products yet.</p>
+      </ion-text>
+    </ng-template>
+  </div>
+
+</ion-content>

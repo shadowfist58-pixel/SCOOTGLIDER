@@ -1,0 +1,265 @@
+.profile-container {
+  text-align: center;
+  padding: 20px;
+}
+
+ion-avatar {
+  margin: 0 auto 10px;
+  width: 100px;
+  height: 100px;
+}
+
+.name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.email,
+.contact {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.map-toggle {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#profile-map {
+  height: 200px;
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 10px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.logout-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.modal-actions {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form {
+  margin-bottom: 16px;
+}
+
+#profileMap {
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+ion-footer {
+  background: #fff;
+}
+
+ion-button {
+  border-radius: 20px;
+}
+.small-save-btn {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-top: 6px;
+  --padding-bottom: 6px;
+  font-size: 14px;
+  height: 36px;
+  width: auto; // makes it shrink to content
+}
+.profile-picture-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+
+  ion-avatar {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #3880ff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.small-save-btn {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-top: 6px;
+  --padding-bottom: 6px;
+  font-size: 14px;
+  height: 36px;
+  width: auto;
+  margin-top: 12px;
+}
+
+.small-logout-btn {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-top: 6px;
+  --padding-bottom: 6px;
+  font-size: 14px;
+  height: 36px;
+  width: 100%;
+}
+ion-content {
+  --padding-bottom: 80px; // leave space for the footer
+}
+
+.profile-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: block;
+  margin: 20px auto;
+  object-fit: cover;
+}
+
+.small-save-btn {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.small-logout-btn {
+  width: 100%;
+}
+
+/* Profile Photo */
+.profile-photo img {
+  width: 100px;      /* smaller photo */
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+  margin: 20px auto;
+  object-fit: cover;
+  border: 2px solid #3880ff;
+}
+
+/* Save Profile Button */
+.small-save-btn {
+  margin: 12px auto;        /* spacing around button */
+  width: 150px;             /* smaller width */
+  height: 36px;             /* smaller height */
+  font-size: 14px;          /* smaller text */
+  --padding-start: 8px;
+  --padding-end: 8px;
+}
+
+/* Logout Button */
+.small-logout-btn {
+  width: 150px;             /* smaller width */
+  height: 36px;             /* smaller height */
+  font-size: 14px;
+  --padding-start: 8px;
+  --padding-end: 8px;
+  margin: 6px auto;         /* center in toolbar */
+  display: block;
+}
+
+/* Optional: adjust ion-content padding so buttons aren’t hidden */
+ion-content {
+  --padding-bottom: 100px;  /* ensures scrolling above footer */
+}
+
+/* Map container */
+#profileMap {
+  border-radius: 12px;
+}
+
+/* Overall form adjustments */
+ion-list ion-item ion-input {
+  font-size: 14px;
+  height: 32px;
+}
+/* Remove background and shadow from ion-list items */
+ion-list, ion-item {
+  --background: transparent; /* removes gray background */
+  --ion-item-background: transparent; /* safer for some Ionic versions */
+  --box-shadow: none;        /* removes shadow */
+  border: none;              /* optional, remove borders */
+}
+
+/* Remove shadow from ion-card if used for profile info */
+ion-card {
+  --background: transparent;
+  --box-shadow: none;
+  border: none;
+}
+
+/* Optional: make content fully flush with background */
+ion-content {
+  --background: #151514; /* or whatever your page bg color is */
+  --padding-top: 10px;
+  --padding-bottom: 80px; /* leave space for logout button */
+}
+
+.profile-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* aligns left */
+  margin-bottom: 16px;
+
+  ion-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8px;
+  }
+
+  input[type="file"] {
+    font-size: 14px;
+  }
+}.profile-picture-container {
+  display: flex;
+  flex-direction: column; // stack vertically
+  align-items: center;    // center horizontally
+  margin-bottom: 15px;
+
+  ion-avatar {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px; // space between avatar and button
+  }
+
+  #fileInput {
+    display: none; // hide the file input
+  }
+
+  .choose-photo-btn {
+    background-color: #3880ff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 9px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background-color: #3171e0;
+    }
+  }.map-wrapper {
+  height: 100px;          // fixed height
+  width: 100%;            // full width
+  margin: 10px 0;
+  border-radius: 12px;
+  overflow: hidden;       // prevents map from spilling out
+  position: relative;     // ensures Leaflet uses container dimensions
+
+  #profileMap {
+    height: 100%;         // must fill the wrapper
+    width: 100%;
+  }
+}
+
+
+}

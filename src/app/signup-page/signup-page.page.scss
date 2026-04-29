@@ -1,0 +1,182 @@
+/* 
+  SIGNUP CONTAINER 
+  Main wrapper that centers and styles the signup page background 
+*/
+.signup-container {
+  height: 140%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: #d7d7db;
+  background: linear-gradient(160deg, rgba(215, 215, 219, 1) 0%, rgba(83, 7, 95, 0.93) 30%, rgba(252, 10, 10, 1) 100%);
+  padding: 20px;
+ background-attachment: fixed;
+ z-index: -1; /* stays behind content */
+}
+
+/* 
+  LOGO SECTION 
+  Displays the app logo, name, and tagline 
+*/
+.logo-section {
+  text-align: center;
+  margin-top: 43px;
+
+  img {
+    width: 100%;
+    max-height: 120px;
+    object-fit: contain;
+  }
+
+  h1 {
+    font-family: 'Georgia', serif;
+    font-size: 36px;
+    margin: 10px 0 5px;
+    color: rgb(216, 235, 0);
+  }
+
+  p {
+    border-top: 10;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.502);
+  }
+}
+
+/* 
+  TOGGLE BUTTONS 
+  Switches between login and signup forms 
+*/
+.toggle-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+
+  button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 25px;
+    margin: 0 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    background: white;
+    color: #130606;
+  }
+
+  .active {
+    background: #2563eb;
+    color: rgb(255, 255, 255);
+  }
+}
+
+/* 
+  FORM ITEMS 
+  Styles for input containers and fields 
+*/
+ion-item {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  --background: white;
+}
+
+ion-input {
+  padding: 10px;
+}
+
+/* 
+  FORGOT PASSWORD 
+  Optional text for password recovery 
+*/
+.forgot-password {
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: right;
+  width: 100%;
+  display: block;
+}
+
+/* 
+  PRIMARY BUTTON 
+  Used for login action 
+*/
+.primary-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  background: #2563eb;
+  color: rgb(66, 63, 63);
+  font-weight: bold;
+  border: none;
+}
+
+/* 
+  SECONDARY BUTTON 
+  Used for signup action 
+*/
+.secondary-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  background: #facc15;
+  color: #333;
+  font-weight: bold;
+  border: none;
+}
+
+/* 
+  INPUT STYLES 
+  Improves visual clarity and focus state 
+*/
+ion-item {
+  --background: white;
+  border-radius: 25px;
+  margin-bottom: 15px;
+  --highlight-color-focused: #2563eb;
+}
+
+ion-input {
+  color: #000 !important;
+  --color: #000 !important;
+}
+
+ion-input::part(native) {
+  color: #000 !important;
+  font-size: 14px;
+}
+
+ion-input::placeholder {
+  color: #666 !important;
+}
+
+/* 
+  LOGO IMAGE 
+  Rounds and sizes the app logo 
+*/
+.logo-img {
+  width: 160px;
+  height: 160px;       /* fixed circle */
+  border-radius: 100%;
+  object-fit: cover;
+}
+.pol {
+  border-bottom: 50px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.502);
+
+  }
+.forgot-password {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.forgot-password a {
+  color: #3880ff;
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}

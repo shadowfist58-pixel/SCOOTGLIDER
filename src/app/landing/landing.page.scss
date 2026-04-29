@@ -1,0 +1,90 @@
+.landing-content {
+  --background: linear-gradient(160deg, #d7d7db 0%, rgba(83, 7, 95, 0.93) 46%, rgb(252, 10, 10) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* 🟡 Curved top wave */
+.top-shape {
+  position: absolute;
+  top: -60px; /* Adjusts how much curve peeks behind logo */
+  left: 0;
+  width: 100%;
+  height: 250px;
+  background: rgb(249, 252, 23);
+  border-bottom-left-radius: 50% 40%;
+  border-bottom-right-radius: 50% 40%;
+  z-index: 0; /* behind everything */
+}
+
+/* 🎯 Logo + text center section */
+.logo-container {
+  position: relative;
+  text-align: center;
+  color: white;
+  z-index: 2; /* above top-shape */
+  animation: slideUp 2s ease-out;
+  margin-top: 50px; /* push down slightly for better spacing */
+}
+
+/* 🛵 Logo image */
+.logo {
+  width: 140px;
+  height: 140px;
+  margin-bottom: 15px;
+  border-radius: 30px;
+  background-color: white;
+  padding: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 3; /* ensure stays on top */
+}
+
+/* ✨ App title & tagline */
+.app-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffee00;
+  margin-bottom: 5px;
+  margin-top: 0px;
+}
+
+.tagline {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* 🎞️ Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+}
+
+.well {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  color: rgb(255, 255, 255);
+  opacity: 0.85;
+}

@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Rent {{ scooter?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Scooter Details -->
+  <ion-card *ngIf="scooter">
+    <ion-img [src]="scooter.image || 'assets/scooters/default.png'"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{ scooter.name }}</ion-card-title>
+      <ion-card-subtitle>{{ scooter.brand }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ scooter.description }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Rental Type Selection -->
+  <ion-item>
+    <ion-label>Rent Type</ion-label>
+    <ion-segment [(ngModel)]="rentType" (ionChange)="updatePrice()">
+      <ion-segment-button value="hour">
+        <ion-label>Per Hour</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="day">
+        <ion-label>Per Day</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-item>
+
+  <!-- Duration Input -->
+  <ion-item>
+    <ion-label position="floating">
+      Duration ({{ rentType === 'hour' ? 'hours' : 'days' }})
+    </ion-label>
+    <ion-input
+      type="number"
+      [(ngModel)]="duration"
+      (ionInput)="updatePrice()"
+      min="1">
+    </ion-input>
+  </ion-item>
+
+  <!-- Delivery Option -->
+  <ion-item>
+    <ion-label>Delivery Option</ion-label>
+    <!-- ✅ explicitly typed deliveryOption options -->
+    <ion-select [(ngModel)]="deliveryOption" (ionChange)="updatePrice()">
+      <ion-select-option [value]="'pickup'">Pick-up</ion-select-option>
+      <ion-select-option [value]="'delivery'">Delivery (+₱200)</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Total Summary -->
+  <ion-card color="light">
+    <ion-card-content>
+      <h2>Total Price: ₱{{ totalPrice | number }}</h2>
+      <p *ngIf="deliveryOption === 'delivery'">(Includes ₱200 delivery fee)</p>
+    </ion-card-content>
+  </ion-card>
+
+
+<!-- Payment Method -->
+<ion-item>
+  <ion-label>Payment Method</ion-label>
+  <ion-select [(ngModel)]="paymentOption">
+    <ion-select-option value="cash">Cash</ion-select-option>
+    <ion-select-option value="gcash">GCash</ion-select-option>
+    <ion-select-option value="credit">Credit Card</ion-select-option>
+  </ion-select>
+</ion-item>
+
+  <!-- Confirm Button -->
+  <ion-button expand="block" color="success" (click)="confirmRental()">
+    <ion-icon slot="start" name="checkmark-circle-outline"></ion-icon>
+    Confirm & Checkout
+  </ion-button>
+</ion-content>
+
+<!-- Footer Navigation -->
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-buttons
+      slot="primary"
+      style="display: flex; justify-content: space-around; width: 100%;">
+      <ion-button fill="clear" routerLink="/home">
+        <ion-icon slot="icon-only" name="home-outline"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" routerLink="/orders">
+        <ion-icon slot="icon-only" name="receipt-outline"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" routerLink="/profile">
+        <ion-icon slot="icon-only" name="person-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
